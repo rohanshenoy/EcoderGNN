@@ -1,2 +1,4 @@
 # EcoderGNN
-Learning particle features from ASIC AE latent soa
+Learning particle features from HGCal ASIC AE latent space: https://github.com/rohanshenoy/Ecoder
+
+
