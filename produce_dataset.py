@@ -87,7 +87,10 @@ def loadEconData(inputRoot,
             dfEtaPhi=pd.read_csv('WaferEtaPhiMap.csv')
             dfTrainData=dfTrainData.merge(dfEtaPhi, on=['subdet','layer','waferu','waferv'])
             dfTrainData.reset_index(drop=True,inplace=True)
-            mergeTrainingData=pd.concat([mergeTrainingData,dfTrainData])   
+            mergeTrainingData=pd.concat([mergeTrainingData,dfTrainData])
+    #map abs(eta) to physical eta: zside*eta
+    
+    mergeTrainingData['tc_eta'] = mergeTrainingData['zside']*mergeTrainingData['tc_eta']
 
     if '.csv' in outputFileName:
         mergeTrainingData.to_csv(outputFileName,index=False)
