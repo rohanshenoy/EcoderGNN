@@ -84,7 +84,7 @@ def loadEconData(inputRoot,
             dfTrainData[['subdet','zside','layer','waferu','waferv']] = dfTrainData[['subdet','zside','layer','waferu','waferv']].astype(int)
             
             #Mapping wafer_u,v to physical coordinates
-            dfEtaPhi=pd.read_csv('/ecoderemdvol/ttbar/data/HGCal22Data_signal_driven_ttbar_v11/WaferEtaPhiMap.csv')
+            dfEtaPhi=pd.read_csv('/ecoderemdvol/WaferEtaPhiMap.csv')
             dfTrainData=dfTrainData.merge(dfEtaPhi, on=['subdet','layer','waferu','waferv'])
             dfTrainData.reset_index(drop=True,inplace=True)
             mergeTrainingData=pd.concat([mergeTrainingData,dfTrainData])
